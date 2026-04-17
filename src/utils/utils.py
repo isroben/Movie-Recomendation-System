@@ -1,11 +1,9 @@
 import os
 import sys
 import dill
-from typing import Dict, Any
-import ast
+from typing import Any
 from src.utils.logger import get_logger
 from src.utils.exception import CustomException
-from sklearn.base import BaseEstimator, TransformerMixin
 
 logger = get_logger(__name__)
 

@@ -13,12 +13,6 @@ from sklearn.compose import ColumnTransformer
 
 from src.utils.exception import CustomException
 from src.utils.logger import get_logger
-from src.utils.utils import ListConverter
-from src.utils.utils import FetchCasts
-from src.utils.utils import FetchDirs
-from src.utils.utils import ReplaceSpaces
-from src.utils.utils import OverviewSplitter
-from src.utils.utils import TagsCreator
 
 
 logger = get_logger(__name__)
@@ -32,7 +26,6 @@ class DataTransformation:
     def __init__(self):
         self.config = DataTransformationConfig()
 
-
     def getTransformationObj(self):
         try:
             pass
@@ -41,7 +34,6 @@ class DataTransformation:
 
     def initiateDataTransformation(self, movies, credits):
         try:
-            
             df = pd.merge(movies, credits, on='title')
             print(df.columns)
 
