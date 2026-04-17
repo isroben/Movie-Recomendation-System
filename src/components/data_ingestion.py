@@ -11,11 +11,11 @@ logger = get_logger(__name__)
 
 @dataclass
 class DataIngestionConfig:
-    db_user: str = 'localhost'
+    db_user: str = 'postgres'
     db_password: str = "Letmein$$"
     db_host: str = "localhost"
-    db_port : str = "5000"
-    db_name : str = "movie"
+    db_port : str = "5432"
+    db_name : str = "tmdt_movie_dataset"
 
 class DataIngestion:
     def __init__(self):
@@ -46,15 +46,7 @@ class DataIngestion:
             engine = self._get_engine()
 
             query = """
-            SELECT 
-                m.id,
-                m.title,
-                m.genres,
-                m.keywords,
-                m.overview,
-                c.cast,
-                c.crew
-            FROM movies m JOIN credits c ON m.id = c.id
+            SELECT * FROM movies
             """
 
             dataset = pd.read_sql(query, engine)
@@ -66,5 +58,8 @@ class DataIngestion:
         except Exception as e:
             raise CustomException(e, sys)
 
-if "__name__" == "__main__":
-    DataIngestion.initiateDataIngestion()
+
+dataObj = DataIngestion()
+dataset = dataObj.initiateDataIngestion()
+print(dataset.head())
+print("called obj")
