@@ -14,7 +14,7 @@ list_of_files = [
     'src/components/data_ingestion.py',
     'src/components/data_transformation.py',
     'src/components/model_trainer.py',
-    'src/Components/model_evaluation.py',
+    'src/components/model_evaluation.py',
     'src/pipeline/__init__.py',
     'src/pipeline/train_pipeline.py',
     'src/pipeline/predict_pipeline.py',
